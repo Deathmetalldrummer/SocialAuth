@@ -4,3 +4,4 @@
 //#include("./googleAuth/googleAuth.js");
 //#include("./vkAuth/vkAuth.js");
 //#include("./facebookAuth/facebookAuth.js");
+//#include("./gitHubAuth/gitHubAuth.js");

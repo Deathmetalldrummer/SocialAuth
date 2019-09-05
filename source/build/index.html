@@ -23,8 +23,12 @@
               <button onClick="vkSignOut()">vk sign out</button>
           </div>
           <div class="Auth_f">
-              <button onClick="vkSingIn()">facebook sign in</button>
-              <button onClick="vkSignOut()">facebook sign out</button>
+              <button onClick="fbSignIn()">facebook sign in</button>
+              <button onClick="fbSignOut()">facebook sign out</button>
+          </div>
+          <div class="Auth_gh">
+              <button onClick="ghSingIn()">GitHub sign in</button>
+              <button onClick="ghSignOut()">GitHub sign out</button>
           </div>
         </div>
       </div>
@@ -32,6 +36,7 @@
     <script src="https://apis.google.com/js/platform.js"></script>
     <script src="https://vk.com/js/api/openapi.js?162"></script>
     <script src="https://connect.facebook.net/es_LA/sdk.js"></script>
+    <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!--script(src='../../node_modules/jquery/dist/jquery.js')-->
     <script src="./index.js"></script>

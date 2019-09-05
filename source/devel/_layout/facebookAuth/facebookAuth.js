@@ -7,7 +7,7 @@
 //   });
 // };
 //
-// function vkSingIn() {
+// function fbSignIn() {
 //   window.FB.getLoginStatus(function(response) {
 //     console.log(true);
 //     statusChangeCallback(response);
