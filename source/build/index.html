@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>Archetype</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+          <div class="userInfo">
+            <h1>Молви, друг, и войди!</h1>
+          </div>
+        <div class="Auth">
+          <div class="Auth_g">
+              <button onClick="googleSingIn()">google sign in</button>
+              <button onClick="googleSignOut()">google sign out</button>
+          </div>
+          <div class="Auth_v">
+              <button onClick="vkSignIn()">vk sign in</button>
+              <button onClick="vkSignOut()">vk sign out</button>
+          </div>
+          <div class="Auth_f">
+              <button onClick="vkSingIn()">facebook sign in</button>
+              <button onClick="vkSignOut()">facebook sign out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://vk.com/js/api/openapi.js?162"></script>
+    <script src="https://connect.facebook.net/es_LA/sdk.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
