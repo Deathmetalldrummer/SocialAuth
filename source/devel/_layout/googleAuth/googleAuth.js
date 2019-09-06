@@ -32,3 +32,6 @@ function googleViewInfo() {
   }
 }
 
+function google__() {
+  console.log(true);
+}

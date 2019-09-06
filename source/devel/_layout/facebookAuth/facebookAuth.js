@@ -5,7 +5,7 @@ $(function () {
     xfbml      : true,
     version    : 'v4.0'
   });
-});
+  });
 
 function fbSignIn() {
   FB.login(function(response) {
@@ -33,4 +33,20 @@ var desc = response.id;
     }
   });
   console.log(true);
+}
+
+function fbSignOut() {
+  FB.logout(function(response) {
+    // user is now logged out
+    console.log(response);
+    clearUserInfo();
+  });
+}
+
+
+function fb__() {
+  console.log(true);
+  FB.getLoginStatus(function (resp) {
+    console.log(resp);
+  });
 }

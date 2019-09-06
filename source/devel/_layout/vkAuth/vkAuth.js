@@ -36,3 +36,7 @@ function vkViewInfo(status) {
     userInfo(vkUsers.avatar,vkUsers.name,vkUsers.desc);
   }
 }
+
+function vk__() {
+  console.log(true);
+}

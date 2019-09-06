@@ -47,6 +47,9 @@ function googleViewInfo() {
   }
 }
 
+function google__() {
+  console.log(true);
+}
 
 $(function () {
   VK.init({apiId: 7122028});
@@ -87,6 +90,10 @@ function vkViewInfo(status) {
   }
 }
 
+function vk__() {
+  console.log(true);
+}
+
 $(function () {
   FB.init({
     appId      : '2722005527823279',
@@ -94,7 +101,7 @@ $(function () {
     xfbml      : true,
     version    : 'v4.0'
   });
-});
+  });
 
 function fbSignIn() {
   FB.login(function(response) {
@@ -124,11 +131,27 @@ var desc = response.id;
   console.log(true);
 }
 
+function fbSignOut() {
+  FB.logout(function(response) {
+    // user is now logged out
+    console.log(response);
+    clearUserInfo();
+  });
+}
+
+
+function fb__() {
+  console.log(true);
+  FB.getLoginStatus(function (resp) {
+    console.log(resp);
+  });
+}
+
 function ghSingIn() {
   OAuth.initialize('ATBfZdbaUFfsJY_TDk82H87HbLE');
 
   OAuth.popup('github').then(function(github) {
-window.githubtoken = github.access_token
+    window.githubtoken = github.access_token;
     github.get('/user').then(function(data) {
       console.log('self data:', github);
       var avatar = data.avatar_url;
@@ -140,17 +163,14 @@ window.githubtoken = github.access_token
     })
   });
 }
-
+//authorizations/result.access_token
 function ghSignOut() {
   OAuth.popup('github')
        .done(function(result) {
-         result.del(githubtoken)
+         result.patch('/authorizations/'+result.access_token)
                .done(function (response) {
                  console.log(true);
-                 console.log(response);
-                 //this will display true if the user was authorized to delete
-                 //the picture
-                 console.log(response);
+                 console.log(response,111111111);
                })
                .fail(function (err) {
                  //handle error with err
@@ -159,6 +179,11 @@ function ghSignOut() {
        .fail(function (err) {
          //handle error with err
        });
+}
+
+
+function gh__() {
+  console.log(true);
 }
 
 
