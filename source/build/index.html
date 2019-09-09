@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--include ./vkAuth/vkAuth-->
+  <!--include ./facebookAuth/facebookAuth-->
+  <!--include ./gitHubAuth/gitHubAuth-->
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,25 +18,16 @@
           </div>
         <div class="Auth">
           <div class="Auth_g">
-              <button onClick="googleSingIn()">google sign in</button>
+              <button onClick="googleSignIn()">google sign in</button>
               <button onClick="googleSignOut()">google sign out</button>
               <button onClick="google__()">google</button>
           </div>
-          <div class="Auth_v">
-              <button onClick="vkSignIn()">vk sign in</button>
-              <button onClick="vkSignOut()">vk sign out</button>
-              <button onClick="vk__()">vk</button>
-          </div>
-          <div class="Auth_f">
-              <button onClick="fbSignIn()">facebook sign in</button>
-              <button onClick="fbSignOut()">facebook sign out</button>
-              <button onClick="fb__()">facebook</button>
-          </div>
-          <div class="Auth_gh">
-              <button onClick="ghSingIn()">GitHub sign in</button>
-              <button onClick="ghSignOut()">GitHub sign out</button>
-              <button onClick="gh__()">GitHub</button>
-          </div>
+          <!--.Auth_v-->
+          <!--    +vkAuth()-->
+          <!--.Auth_f-->
+          <!--    +facebookAuth()-->
+          <!--.Auth_gh-->
+          <!--    +ghAuth()-->
         </div>
       </div>
     </div>

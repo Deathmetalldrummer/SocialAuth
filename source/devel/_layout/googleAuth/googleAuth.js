@@ -1,37 +1,65 @@
-gapi.load('auth2', function() {
-  window.googleAuth = auth2 = gapi.auth2.init({
+gapi.load('auth2', function () {
+  window.GoogleAuth = gapi.auth2.init({
     client_id: '30989400492-62vbas87b820qdfjl9idukhone5tjblh.apps.googleusercontent.com'
   });
+  GoogleAuth.then(function (response) {
+      if (response.currentUser.get()) {
+        window.GoogleUser = response.currentUser.get();
+        googleViewInfo();
+        console.log('User Signed', GoogleUser);
+      }
+    })
+    .catch(function (error) {
+      console.log('Нет пользователей.');
+    });
 });
 
-function googleSingIn() {
-  googleAuth.signIn().then(function () {
-    window.googleUser = googleAuth.currentUser.get();
-    console.log('User signed in');
-    googleViewInfo();
-  });
+function googleSignIn() {
+  console.log(GoogleAuth.isSignedIn.get());
+  if (!GoogleAuth.isSignedIn.get()) {
+  GoogleAuth.signIn()
+              .then(function (r) {
+                console.log('User signed in', r);
+                window.GoogleUser = r;
+                googleViewInfo();
+              })
+              .catch(function (error) {
+                console.log('Не удалось авторизоваться!');
+              });
+  } else {
+    console.log('Пользователь вошел в систему');
+  }
+
 }
 
 function googleSignOut() {
-  googleAuth.signOut().then(function () {
-    console.log(googleUser.isSignedIn(), 'User signed out.');
-    googleViewInfo();
-  });
-
+  GoogleAuth.signOut()
+            .then(function () {
+              console.log(GoogleAuth.isSignedIn(), 'User signed out.');
+              clearUserInfo();
+            });
 }
 
 function googleViewInfo() {
-  if (googleAuth.isSignedIn.get() && googleUser.isSignedIn()){
-    var name = googleUser.getBasicProfile().getName();
-    var img = googleUser.getBasicProfile().getImageUrl();
-    var email = googleUser.getBasicProfile().getEmail();
+  var name  = GoogleAuth.getBasicProfile()
+                        .getName();
+  var img   = GoogleAuth.getBasicProfile()
+                        .getImageUrl();
+  var email = GoogleAuth.getBasicProfile()
+                        .getEmail();
 
-    userInfo(img,name,email);
-  } else {
-    clearUserInfo()
-  }
+  userInfo(img, name, email);
 }
 
 function google__() {
-  console.log(true);
+  if (GoogleAuth.isSignedIn()) {
+    console.log('true');
+  } else {
+    console.log('false');
+  }
+
+  // if (googleUser) {
+  //   alert("User - " + googleUser.isSignedIn());
+  //   console.log("User - " + googleUser.isSignedIn());
+  // }
 }
